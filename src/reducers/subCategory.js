@@ -17,6 +17,19 @@ export const subCategoryReducer = createReducer(initialState, {
     state.error = action.payload;
     state.failure = true;
   },
+  createSubCategoryRequest: (state) => {
+    state.loading = true;
+    state.failure = false;
+  },
+  createSubCategorySuccess: (state, action) => {
+    state.loading = false;
+    state.failure = false;
+  },
+  createSubCategoryFailure: (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+    state.failure = true;
+  },
   closeError: (state) => {
     state.failure= false
   }

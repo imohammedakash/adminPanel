@@ -58,6 +58,54 @@ export const LoginAdmin = (email, password, navigate) => async (dispatch) => {
     });
   }
 };
+export const getOrderData = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "orderDataRequest",
+    });
+    const token = JSON.parse(Cookies.get("LoginGravityAdmin"));
+    const orderData = await axios.get(`${config.apiurl}/admin/orderdata`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+    dispatch({
+      type: "orderDataSuccess",
+      payload: orderData.data,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: "orderDataFailure",
+      payload: error.message,
+    });
+  }
+};
+export const getUserData = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "userDataRequest",
+    });
+    const token = JSON.parse(Cookies.get("LoginGravityAdmin"));
+    const userData = await axios.get(`${config.apiurl}/admin/userdata`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+    dispatch({
+      type: "userDataSuccess",
+      payload: userData.data,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: "userDataFailure",
+      payload: error.message,
+    });
+  }
+};
 export const LogoutAdmin = () => async (dispatch) => {
   try {
     Cookies.set("LoginGravityAdmin", null);

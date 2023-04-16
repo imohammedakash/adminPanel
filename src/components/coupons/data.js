@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Sidebar from "../Directories/Sidebar";
-import { Table, Card, Form, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ReactDatatable from "@ashvin27/react-datatable";

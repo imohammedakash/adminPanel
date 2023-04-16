@@ -3,13 +3,10 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Sidebar from "../Directories/Sidebar";
-import { Table, Card, Form, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ReactDatatable from "@ashvin27/react-datatable";
-import Cookies from "js-cookie";
-import axios from "axios";
-import config from "../../config/config";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategory } from "../../actions/category";
@@ -88,7 +85,7 @@ const CatagoriesData = () => {
       sortable: true,
     },
     {
-      key: "commsion",
+      key: "commision",
       text: "Commision",
       align: "left",
       sortable: true,

@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Sidebar from "../Directories/Sidebar";
 
-import { Button, Card, Form, Col, Row } from "react-bootstrap";
+import { Button, Card, Form} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createCategory } from "../../actions/category";
 import ErrorModal from "../../ErrorModal";
@@ -33,7 +33,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 const AddCategories = () => {
   const [category, setCategory] = useState({
-    parent: "",
+    parent: "null",
     subcategory: "",
     bgColor: "",
     hsnCode: "",
@@ -95,19 +95,15 @@ const AddCategories = () => {
                   </Card> */}
                 <form encType="multipart/form-data"  className="theme-form mt-3">
                   <Form.Group className="mb-3">
-                    <Form.Label>Sub Categories</Form.Label>
-                    <Form.Select
-                      size="lg"
+                    <Form.Label>Sub Category</Form.Label>
+                    <Form.Control
+                      type="text"
                       name="subcategory"
                       value={category.subcategory}
                       onChange={handleChange}
                       required
-                    >
-                      <option value="pizza">Pizza</option>
-                      <option value="chicken">Chiken</option>
-                      <option value="vegitables">vegitables</option>
-                      <option value="fruites">Fruites</option>
-                    </Form.Select>
+                      placeholder="Enter subcategory"
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label>CashBack</Form.Label>
@@ -164,18 +160,6 @@ const AddCategories = () => {
                       required
                     />
                   </Form.Group>
-                  {/* <Form.Group className="mb-3">
-                      <Form.Label>Tax</Form.Label>
-                      <Form.Control type="Name" placeholder="Tax" />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Slug</Form.Label>
-                      <Form.Control type="Name" placeholder="Slug" />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Sort Order</Form.Label>
-                      <Form.Control type="number" placeholder="Sort Order" />
-                    </Form.Group> */}
                   <Form.Group className="mb-3">
                     <Form.Label>Parent</Form.Label>
                     <Form.Select
@@ -186,9 +170,8 @@ const AddCategories = () => {
                       required
                     >
                       <option value="Groceries">Groceries</option>
-                      <option value="null">Null</option>
                       <option value="FOOD AND MEALS">FOOD AND MEALS</option>
-                      <option value="MEALS AND FISH">MEALS AND FISH</option>
+                      <option value="MEAT AND FISH">MEAT AND FISH</option>
                       <option value="PHARMA AND MADICINES">
                         PHARMA AND MADICINES
                       </option>
@@ -204,34 +187,6 @@ const AddCategories = () => {
                       onChange={(e) => setImage(e.target.files[0])}
                     />
                   </Form.Group>
-                  {/* <Card className="data-card m-0">
-                      <div className="card-header">Meta Fields</div>
-                      <div className="p-3">
-                        <Form className="theme-form">
-                          <Row>
-                            <Col md={6}>
-                              <Form.Group className="mb-3">
-                                <Form.Label>Key</Form.Label>
-                                <Form.Control type="text" />
-                              </Form.Group>
-                            </Col>
-                            <Col md={6}>
-                              <Form.Group className="mb-3">
-                                <Form.Label>Value</Form.Label>
-                                <Form.Select size="lg">
-                                  <option value="1">ecommerce</option>
-                                  <option value="2">package-type</option>
-                                </Form.Select>
-                              </Form.Group>
-                            </Col>
-                          </Row>
-                          <Button type="button" className="add-btn">
-                            ADD METAFIELDS
-                          </Button>
-                        </Form>
-                      </div>
-                    </Card> */}
-
                   <Button className="save-btn" onClick={handleSubmit}>
                     Save
                   </Button>

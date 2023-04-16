@@ -31,7 +31,6 @@ import EditVendors from "../components/vendors/edit";
 import EditDelivery from "../components/delivery/edit";
 import Hello from "../components/hello";
 import Loading from "../Loading";
-import Payout from "../Paytm";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "../ProtectedRoute";
 import PublicRoute from "../PublicRoute";
@@ -43,7 +42,6 @@ const RouterComponent = () => {
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path="/payout" element={<Payout />} />
           <Route path={`${config.baseUrl}loading`} element={<Loading />} />
           <Route
             path={`${config.baseUrl}dashboard`}

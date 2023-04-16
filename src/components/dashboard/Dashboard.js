@@ -2,12 +2,10 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
 import Sidebar from '../Directories/Sidebar';
-
-import { Button, Card, Form, Col, Row } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAdminControll, getOrderCount, getUserCount } from '../../actions/admin';
+import { getAdminControll, getOrderData, getUserData } from '../../actions/admin';
 import { useEffect } from 'react';
 // import C3Chart from 'react-c3js';
 // import 'c3/c3.css';
@@ -52,6 +50,12 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAdminControll());
+  }, []);
+  useEffect(() => {
+    dispatch(getUserData())
+  }, []);
+  useEffect(() => {
+    dispatch(getOrderData())
   }, []);
   const userData = useSelector(state=> state.admin.userCount)
   const orderData = useSelector(state=> state.admin.orderCount)

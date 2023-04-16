@@ -94,9 +94,9 @@ const FaqData = () => {
     dispatch(getAllSubCategory());
   },[]);
   const subCategory = useSelector((state) => state.subCategory.SubCategory);
-  const loading = useSelector((state) => state.user.loading);
-  const failure = useSelector((state) => state.user.failure);
-  const error = useSelector((state) => state.user.error);
+  const loading = useSelector((state) => state.subCategory.loading);
+  const failure = useSelector((state) => state.subCategory.failure);
+  const error = useSelector((state) => state.subCategory.error);
 
   const extraButtons = [];
   // =====================================
